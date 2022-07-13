@@ -1,0 +1,35 @@
+{
+  "name": "micro-front",
+  "version": "1.0.0",
+  "description": "This is micro front project from qiankun",
+  "main": "index.js",
+  "scripts": {
+    "examples:install": "npm-run-all --serial install:*",
+    "examples:start": "npm-run-all --parallel start:*",
+
+    "install:main": "cd main && yarn",
+    "start:main": "cd main && yarn serve",
+
+    "install:react": "cd app-react && yarn",
+    "start:react": "cd app-react && yarn start",
+
+    "install:vue": "cd app-vue && yarn",
+    "start:vue": "cd app-vue && yarn serve",
+
+    "install:static": "cd app-static && yarn",
+    "start:static": "cd app-static && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Believel/micro-front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Believel/micro-front/issues"
+  },
+  "homepage": "https://github.com/Believel/micro-front#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
