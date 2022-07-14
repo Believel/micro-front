@@ -11,11 +11,17 @@ Vue.use(VueRouter);
 Vue.use(Antd);
 Vue.config.productionTip = false;
 
-// 为 Angular 微应用所做的 zone 包注入
-// 如果没有 Angular 微应用，请删除这行代码
-import "zone.js/dist/zone";
-
 startQiankun();
+
+
+
+// 测试   --- start
+// import apps from "./micro/apps"
+// import { registerMicroApps as myregisterMicroApps, start as myStart} from "../micro-fe"
+// myregisterMicroApps(apps)
+// myStart()
+
+// 测试 ---- end
 
 /**
  * 注册路由实例
