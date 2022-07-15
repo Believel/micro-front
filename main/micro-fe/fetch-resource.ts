@@ -1,1 +1,1 @@
-export const fetchResource = url => fetch(url).then(res => res.text())
+export const fetchResource = (url: string) => fetch(url).then(res => res.text())

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js 代理沙箱</title>
+</head>
+<body>
+  <script>
+    class ProxySandbox {
+      constructor() {
+        // 全局属性
+        const windowSX = window
+        // 保存用户更改的属性
+        const changeParam = {}
+
+        this.proxy = new Proxy(changeParam, {
+          set(target, key, value) {
+            target[key] = value
+            return true
+          },
+          get(target, key) {
+            return target[key] || windowSX[key]
+          }
+        })
+      }
+    }
+
+    const proxy1 = new ProxySandbox()
+    const proxy2 = new ProxySandbox();
+    ((window) => {
+      window.a = 10
+      console.log(window.a)
+    })(proxy1.proxy);
+
+    ((window) => {
+      window.a = 20 
+      console.log(window.a)
+    })(proxy2.proxy)
+
+  </script>
+</body>
+</html>

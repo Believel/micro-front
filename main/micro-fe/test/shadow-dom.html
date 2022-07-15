@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <p>hello</p>
+  <div id="sub-app">
+  </div>
+  <script>
+    // shadom DOM
+    // Web components 的一个重要属性是封装 - 可以将标记结构、样式和行为隐藏起来，并与页面上的其他代码想隔离，保证不同的部分不会混在一起，可使代码更加干净、整洁。
+    const subApp = document.getElementById('sub-app')
+    // open 表示可以通过页面内的 javaScript 方式来获取 Shadow DOM
+    const shadow = subApp.attachShadow({ mode: 'open'})
+    shadow.innerHTML = `
+    <p>这是通过shadow dom添加的内容</p>
+    <style>
+    p { color: green}  
+    </style>
+    `
+  </script>
+</body>
+</html>

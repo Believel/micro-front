@@ -32,7 +32,7 @@ const Status = () => {
       // 获取用户信息
       getUserInfo()
     }, true)
-  }, []);
+  }, [history]);
 
   if (!userInfo) return null;
 

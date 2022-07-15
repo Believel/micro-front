@@ -26,7 +26,17 @@ export const importHTML = async (url: string) => {
   // 获取并执行所有的 script 脚本代码
   async function execScripts() {
     const scripts = await getExternalScripts()
+
+    // 手动的构造一个 CommonJS 模块环境
+    const module = { exports: {}}
+    const exports = module.exports
+
+    console.log(scripts)
+
     scripts.forEach(code => eval(code))
+
+    // 拿到 子应用中注册的时间钩子：bootstrap、mount、unmount
+    return module.exports
   }
   return {
     template,

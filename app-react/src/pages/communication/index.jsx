@@ -13,7 +13,7 @@ export default () => {
       history.push("/")
     }
     console.log("我是通过shared通信获取的token:", token)
-  }, [])
+  }, [history])
   return (
     <div>
       <Button >我是shared通信</Button>
