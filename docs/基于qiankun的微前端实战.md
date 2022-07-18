@@ -371,3 +371,34 @@ module.exports = {
   }
 }
 ```
+
+# 4. CSS隔离
+## 4.1 方式1：采用Shadow DOM
+```js
+import { start } from 'qiankun'
+// 在启动 qinakun 的时候 
+start({
+  // 是否开启沙箱，默认为true
+  // 默认情况下沙箱可以确保单实例场景子应用之间的样式隔离，但是无法确保主应用跟子应用、或者多实例场景的子应用样式隔离
+  sandbox: {
+    strictStyleIsolation: true, // 表示开启严格的样式隔离模式，这种模式下 qiankun 会为每个微应用的容器包裹上一个 shadow dom 节点，从而确保微应用的样式不会对全局造成影响。
+  }
+});
+```
+* 显示效果
+
+## 4.2 方式2：通过添加选择前缀解决样式冲突
+```js
+import { start } from 'qiankun'
+// 在启动 qinakun 的时候 
+start({
+  // 是否开启沙箱，默认为true
+  // 默认情况下沙箱可以确保单实例场景子应用之间的样式隔离，但是无法确保主应用跟子应用、或者多实例场景的子应用样式隔离
+  sandbox: {
+    experimentalStyleIsolation: true // 通过选择器来解决样式冲突
+  }
+});
+```
+* 显示效果
+
+![](/imgs/data-qiankun.png)
