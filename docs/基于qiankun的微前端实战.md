@@ -401,4 +401,4 @@ start({
 ```
 * 显示效果
 
-![](/imgs/data-qiankun.png)
+![](https://raw.githubusercontent.com/Believel/MarkdownPhotos/master/qiankun/data-qiankun.png)
